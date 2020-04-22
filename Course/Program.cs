@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using Course.Entities;
 
 namespace Course
 {
@@ -14,13 +15,13 @@ namespace Course
             {
                 using(StreamReader sr = File.OpenText(path))
                 {
-                    List<string> list = new List<string>();
+                    List<Employee> list = new List<Employee>();
                     while (!sr.EndOfStream)
                     {
-                        list.Add(sr.ReadLine());
+                        list.Add(new Employee(sr.ReadLine()));
                     }
                     list.Sort();
-                    foreach(string x in list)
+                    foreach(Employee x in list)
                     {
                         Console.WriteLine(x);
                     }
